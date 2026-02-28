@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node -e \"require('fs').writeFileSync('dist/.assetsignore', '_worker.js\\n_routes.json\\n')\"",
+    "build": "astro build && node -e \"const fs=require('fs');fs.writeFileSync('dist/.assetsignore','_worker.js\\n_routes.json\\n');fs.writeFileSync('dist/_redirects','/ /blog/ 301\\n')\"",
     "preview": "astro preview",
     "astro": "astro"
   },
