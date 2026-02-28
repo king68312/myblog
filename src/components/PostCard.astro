@@ -17,10 +17,10 @@ const formattedDate = pubDate.toLocaleDateString('ja-JP', {
 ---
 
 <article class="group border border-zinc-800 rounded-xl p-5 hover:border-zinc-600 transition-colors">
+  <div class="flex flex-wrap gap-1.5 mb-2">
+    {tags.map((tag) => <TagBadge tag={tag} />)}
+  </div>
   <a href={`${import.meta.env.BASE_URL}${post.slug}`} class="block">
-    <div class="flex flex-wrap gap-1.5 mb-2">
-      {tags.map((tag) => <TagBadge tag={tag} />)}
-    </div>
     <h2 class="text-lg font-semibold mb-1.5 group-hover:text-indigo-300 transition-colors">
       {title}
     </h2>
