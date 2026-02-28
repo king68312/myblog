@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TagBadge from '../../components/TagBadge.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+
+const tagCounts = posts.reduce<Record<string, number>>((acc, post) => {
+  for (const tag of post.data.tags) {
+    acc[tag] = (acc[tag] ?? 0) + 1;
+  }
+  return acc;
+}, {});
+
+const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="タグ一覧 | king3326 blog">
+  <h1 class="text-2xl font-bold mb-8">タグ一覧</h1>
+
+  {tags.length === 0 ? (
+    <p class="text-zinc-500">タグがありません。</p>
+  ) : (
+    <div class="flex flex-wrap gap-3">
+      {tags.map(([tag, count]) => (
+        <div class="flex items-center gap-1.5">
+          <TagBadge tag={tag} />
+          <span class="text-xs text-zinc-500">{count}</span>
+        </div>
+      ))}
+    </div>
+  )}
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TagBadge from '../components/TagBadge.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <header class="mb-10">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags.map((tag) => <TagBadge tag={tag} />)}
+      </div>
+      <h1 class="text-3xl font-bold leading-snug mb-3">{title}</h1>
+      <time class="text-sm text-zinc-500" datetime={pubDate.toISOString()}>
+        {formattedDate}
+      </time>
+    </header>
+
+    <div class="prose prose-invert prose-zinc max-w-none
+      prose-headings:font-bold prose-headings:text-zinc-100
+      prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline
+      prose-code:text-indigo-300 prose-code:bg-zinc-800 prose-code:px-1 prose-code:rounded
+      prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-700
+      prose-blockquote:border-l-indigo-500 prose-blockquote:text-zinc-400
+      prose-hr:border-zinc-700
+      prose-img:rounded-lg">
+      <slot />
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-zinc-800">
+      <a href={import.meta.env.BASE_URL} class="text-sm text-indigo-400 hover:underline">← 記事一覧へ戻る</a>
+    </div>
+  </article>
+</BaseLayout>

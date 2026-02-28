@@ -1,17 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
 
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="king3326 blog">
+  <div class="mb-10">
+    <h1 class="text-3xl font-bold mb-2">king3326<span class="text-indigo-400">.blog</span></h1>
+    <p class="text-zinc-400">技術・料理・日常の雑記</p>
+  </div>
+
+  {posts.length === 0 ? (
+    <p class="text-zinc-500">まだ記事がありません。</p>
+  ) : (
+    <div class="flex flex-col gap-4">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  )}
+</BaseLayout>
