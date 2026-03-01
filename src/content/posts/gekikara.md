@@ -8,4 +8,4 @@ draft: false
 
 
 ペヤングの獄激辛を食べてみた。
-![説明](~/workspace/myblog/public/images/gekikara.webp)
+![ペヤング獄激辛](/blog/images/gekikara.webp)
