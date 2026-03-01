@@ -1,6 +1,6 @@
 ---
 title: "ブログをはじめました"
-description: "Astro + Tailwind CSS + Cloudflare Pages で自作ブログを作りました。技術・料理・日常の雑記を書いていきます。"
+description: "Astro + Tailwind CSS + Cloudflare Workers で自作ブログを作りました。技術・料理・日常の雑記を書いていきます。"
 pubDate: 2026-02-28
 tags: ["雑記", "Astro"]
 draft: false
@@ -10,7 +10,6 @@ draft: false
 
 こんにちは、king3326 です。
 個人的なブログをはじめました。
-
 
 ## 書くこと
 
