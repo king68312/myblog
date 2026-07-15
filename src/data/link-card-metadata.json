@@ -1,0 +1,27 @@
+{
+  "https://x.com/k5HtHMk1S990366/status/2075785874378576075": {
+    "title": "関数型まつり2026に行った時のツイート",
+    "description": "会場での投稿。関数型まつり2026参加時の雰囲気が分かるリンクです。",
+    "siteName": "x.com"
+  },
+  "https://fortee.jp/2026fp-matsuri/proposal/48dabf60-2bcf-47f7-ada0-af638ee6af52": {
+    "title": "型は壁、Rustでもバグを直すな、表現できなくせよ",
+    "description": "関数型まつり2026の発表ページ。型で不正な状態を表現できなくする設計の話。",
+    "siteName": "fortee.jp"
+  },
+  "https://fortee.jp/2026fp-matsuri/proposal/02925098-b3c9-4814-b6a1-e0a710399be0": {
+    "title": "速習FP in Scala with Flix: Flix言語で親しむ純粋関数型のコード設計",
+    "description": "関数型まつり2026の発表ページ。Flixを通じて純粋関数型のコード設計に触れるセッション。",
+    "siteName": "fortee.jp"
+  },
+  "https://fortee.jp/2026fp-matsuri/proposal/ea2c981c-e3c6-44cd-b324-e07125e4d97c": {
+    "title": "Haskellと圏論：パフォーマンス改善からKan拡張へ",
+    "description": "関数型まつり2026の発表ページ。Haskellと圏論を結びつけたセッション。",
+    "siteName": "fortee.jp"
+  },
+  "https://fortee.jp/2026fp-matsuri/proposal/68cb9035-4021-4260-8609-f3cd6b6b9569": {
+    "title": "結局のところ「代数的」って何なの？ 〜霧の向こうの代数的エフェクト〜",
+    "description": "関数型まつり2026の発表ページ。代数的エフェクトなどの言葉を掘り下げるセッション。",
+    "siteName": "fortee.jp"
+  }
+}

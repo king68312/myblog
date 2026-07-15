@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, tags } = post.data;
+const { title, description, pubDate, tags, ogImage } = post.data;
 
 const formattedDate = pubDate.toLocaleDateString('ja-JP', {
   year: 'numeric',
@@ -17,7 +17,7 @@ const formattedDate = pubDate.toLocaleDateString('ja-JP', {
 });
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType="article">
   <article>
     <header class="mb-10">
       <div class="flex flex-wrap gap-2 mb-4">

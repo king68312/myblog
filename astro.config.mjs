@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
-import remarkLinkCard from 'remark-link-card';
+import remarkCardLink from './src/plugins/remark-card-link.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +14,6 @@ export default defineConfig({
   adapter: cloudflare(),
 
   markdown: {
-    remarkPlugins: [remarkLinkCard],
+    remarkPlugins: [remarkCardLink],
   }
 });

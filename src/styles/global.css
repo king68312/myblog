@@ -1,2 +1,138 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* 記事内で明示的に使うリンクカード */
+.blog-link-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: #12345d;
+  border: 1px solid #2b5a8a;
+  border-radius: 0.75rem;
+  min-height: 120px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.blog-link-card:hover {
+  color: inherit;
+  text-decoration: none;
+  background: #16406f;
+  border-color: #4f8fca;
+  transform: translateY(-1px);
+}
+
+.blog-link-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 1rem 1.25rem;
+}
+
+.blog-link-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #f4f4f5;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.blog-link-card__description {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #b9c8dc;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0.45rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.blog-link-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  margin-top: 0.7rem;
+  overflow: hidden;
+  color: #dbeafe;
+  font-size: 0.8125rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blog-link-card__meta::before {
+  display: grid;
+  place-items: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  color: #ffffff;
+  background: #38bdf8;
+  border-radius: 0.15rem;
+  content: "/";
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.blog-link-card__thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  background: #0b1020;
+  border-left: 1px solid #2b5a8a;
+}
+
+.blog-link-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-link-card__thumbnail--fallback {
+  padding: 0.75rem;
+  color: #f8fafc;
+  font-weight: 700;
+  text-align: center;
+}
+
+.blog-link-card__thumbnail--fallback span {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+@media (max-width: 640px) {
+  .blog-link-card {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    min-height: 108px;
+  }
+
+  .blog-link-card__body {
+    padding: 0.875rem 1rem;
+  }
+
+  .blog-link-card__description {
+    -webkit-line-clamp: 1;
+  }
+}
+
+/* 古い手書きカードが残っていた場合の互換スタイル */
+.rlc-container {
+  display: flex;
+  color: inherit;
+}
