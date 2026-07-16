@@ -7,6 +7,7 @@ import remarkCardLink from './src/plugins/remark-card-link.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://king3326.dev/',
   base: '/blog/',
   vite: {
     plugins: [tailwindcss()]
