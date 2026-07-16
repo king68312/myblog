@@ -1,10 +1,10 @@
 ---
 title: "関数型まつり2026に参加しました"
-description: "関数型まつり2026に参加記"
+description: "関数型まつり2026参加記"
 pubDate: 2026-07-16
 tags: ["参加記"]
 draft: false
-ogImage: "public/images/fp-matsuri2026-og.png"
+ogImage: "/images/fp-matsuri2026-og.png"
 ---
 
 king3326です。7/11(土),7/12(日)に行われた関数型まつり2026に参加しました。その参加した感想
