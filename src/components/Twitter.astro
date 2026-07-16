@@ -1,0 +1,48 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+
+// X(Twitter)の oEmbed API
+const base = "https://publish.twitter.com/oembed";
+const baseUrl = new URL(base);
+baseUrl.searchParams.set("url", url);
+baseUrl.searchParams.set("omit_script", "true");
+
+interface OembedResponse {
+  html: string;
+}
+
+// ビルド時にツイートのHTMLを取得
+const tweet = await fetch(baseUrl.toString())
+  .then((res) => {
+    if (!res.ok) throw new Error(`X API error: ${res.status}`);
+    return res.json() as Promise<OembedResponse>;
+  })
+  .catch((err) => {
+    console.error("ツイートの取得に失敗しました:", err);
+    return null;
+  });
+---
+
+{
+  tweet && (
+    <div class="tweet-container">
+      {/* 取得したHTMLをそのまま描画 */}
+      <div set:html={tweet.html} />
+      {/* 見た目を整えるX公式のスクリプト */}
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" crossorigin="anonymous" is:inline></script>
+    </div>
+  )
+}
+
+<style>
+  .tweet-container {
+    margin: 2rem auto;
+    max-width: 550px;
+    width: 100%;
+    /* 中央寄せや余白の微調整用 */
+  }
+</style>
